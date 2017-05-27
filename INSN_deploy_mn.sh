@@ -54,7 +54,7 @@ echo -e "rpcuser=$rpcu\nrpcpassword=$rpcp\nrpcallowip=localhost\nrpcport=10257\n
 sleep 10; INSaNed
 
 echo "Setting INSaNed to auto-run on reboot"
-echo -e "@reboot /usr/local/bin/INSaNed\n" >> /var/spool/cron/crontabs/$uris
+#sed -i '/exit 0/c\/usr/local/bin/INSaNed' /etc/rc.local && echo -e "exit 0 \n" >> /etc/rc.local
 echo "Switching to node monitor mode. Press ctl-c to exit."
 watch INSaNed getinfo
 echo "Get INSANE!!\nReboot the VPS and access it again to confirm all is in order" 
